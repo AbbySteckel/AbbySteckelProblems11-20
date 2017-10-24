@@ -104,37 +104,31 @@ function countClumps(arr){
 }
 
 function evenlySpaced(a,b,c){
-    if (a>b&&b>c){
-        var large=a;
-        var medium=b;
-        var small=c;
-    }
-    if (b>a&&a>c){
-        var large=b;
-        var medium=a;
-        var small=c;
-    }
-    if (c>b&&b>a){
-        var large=c;
-        var medium=b;
-        var small=a;
-    }
-    if (c>a&&a>b){
-        var large=c;
-        var medium=a;
-        var small=b;
-    }
-    if (a>c&&c>b){
-        var large=a;
+    var large=Math.max(a,b,c);
+    var small=Math.min(a,b,c);
+
+    if(large==a&&small==b){
         var medium=c;
-        var small=b;
-    }
-    if (a==b&&b==c){
-        var large=a;
-        var medium=b;
-        var small=c;
     }
 
+    if(large==b&&small==c){
+        var medium=a;
+    }
+    if(large==a&&small==c){
+        var medium=b;
+    }
+
+    if(large==c&&small==a){
+        var medium=b;
+    }
+
+    if(large==b&&small==a){
+        var medium=c;
+    }
+
+    if(large==c&&small==b){
+        var medium=a;
+    }
     var diff1=large-medium;
     var diff2=medium-small;
     if(diff1==diff2){
